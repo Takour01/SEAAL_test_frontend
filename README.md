@@ -21,8 +21,8 @@ To get the frontend server running locally, follow these steps:
 Clone the frontend repository to your local machine:
 
 ```bash
-git clone [URL to your frontend repository]
-cd [frontend repository name]
+git clone https://github.com/Takour01/SEAAL_test_frontend.git
+cd SEAAL_test_frontend
 ```
 
 ### 2. Install Dependencies
