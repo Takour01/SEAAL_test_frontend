@@ -1,0 +1,997 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* NOTE: colors varibales  */
+  --col--main: #ed6614;
+  --col--second: #021d4a;
+  --col--third: #f7ac1b;
+  --col--grey: #a9a9a9;
+  --col--white: #fffaf6;
+  /* NOTE: linier colors */
+  --linear-1: linear-gradient(180deg, #ed6614 0%, #f7ac1b 100%);
+  /* NOTE: SHADOW */
+  --shadow-1: drop-shadow(0px 4px 45px rgba(2, 29, 74, 0.1));
+  /* NOTE: BOX SHADOW */
+  --box-1: 0px 4px 45px 0px rgba(2, 29, 74, 0.1);
+
+  /* NOTE: paddings inline */
+  --pc--padding: 70px;
+  /* NOTE: paddings block */
+  /* NOTE: margins inline*/
+  /* NOTE: margins block*/
+}
+
+// NOTE: resetting the variables
+$main: #0c2162;
+$second: #1437a2;
+$third: #3ee5ee;
+$fourth: #e722c9;
+$fifth: #fbb027;
+$white: #ffffff;
+$black: #000000;
+
+// NOTE: importing my library
+@import "KoStyle";
+// NOTE: global styling
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  // background-color: red;
+  font-family: "Montserrat", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  // background-color: red;
+  //   overflow: hidden;
+  @include scrollbar();
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: capitalize;
+}
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.3rem;
+}
+h3 {
+  font-size: 1.15rem;
+}
+h4 {
+  font-size: 1rem;
+}
+p {
+  font-size: 0.8rem;
+  &.big {
+    font-size: 1rem;
+  }
+}
+
+.input {
+  border-radius: 5px;
+  border: 2px solid var(--col--main);
+  background: var(--col--white);
+  &::placeholder {
+    color: var(--col--grey);
+  }
+  &.second {
+    border: 2px solid var(--col--second);
+    color: var(--col--second);
+  }
+  font-size: 1.1rem;
+  padding: 0.8em;
+  width: 100%;
+  &__group {
+    @include col-s-s;
+    gap: 0.4em;
+  }
+  &__label {
+    color: var(--col--second);
+    font-size: 12px;
+    text-transform: capitalize;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  &__search {
+    width: 80%;
+    position: relative;
+    > button {
+      position: absolute;
+      right: 0.5em;
+      font-size: 1rem;
+      top: calc(50% - 8px);
+    }
+    > input {
+      padding: 0.6em;
+      width: 100%;
+    }
+  }
+  &__imgContainer {
+    border-radius: 5px;
+    border: 2px solid var(--col--main);
+    background: var(--col--white);
+    width: 100%;
+    @include center;
+    position: relative;
+    img {
+      z-index: 1;
+    }
+    &.big {
+      height: 300px;
+    }
+    &.small {
+      // width: 50%;
+      height: 150px;
+    }
+    > input {
+      display: none;
+    }
+  }
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 0.8em 0.8em;
+  cursor: pointer;
+  &.clicked {
+    animation: bounce_btn 0.5s ease-in-out forwards;
+  }
+  &.modal {
+    width: 200px;
+    margin-left: 1em;
+  }
+  &.acceptBtn {
+    border-width: 2px !important;
+    padding-block: 0.5em;
+    padding-inline: 0.5em !important;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      color: var(--col--white);
+      background: var(--col--main);
+    }
+  }
+
+  &.main {
+    background-color: var(--col--main);
+    color: var(--col--white);
+    font-style: normal;
+    font-weight: 600;
+    padding-inline: 1em;
+    @include flex-c-c;
+    gap: 0.5em;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      scale: 1.02;
+    }
+  }
+  &.second {
+    background-color: var(--col--second);
+    color: var(--col--white);
+    font-style: normal;
+    font-weight: 600;
+    padding-inline: 1em;
+    @include flex-c-c;
+    gap: 0.5em;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      scale: 1.02;
+    }
+  }
+  &.white {
+    background-color: var(--col--white);
+    border: 1px solid var(--col--main);
+    color: var(--col--main);
+    font-style: normal;
+    font-weight: 600;
+    padding-inline: 1em;
+    @include flex-c-c;
+    gap: 0.5em;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      scale: 1.02;
+    }
+  }
+  &.disabeld {
+    background-color: var(--col--white);
+    border: 1px solid var(--col--grey);
+    color: var(--col--grey);
+    font-style: normal;
+    font-weight: 600;
+    padding-inline: 1em;
+    @include flex-c-c;
+    gap: 0.5em;
+    cursor: not-allowed;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+
+.layout {
+  @include flex-s-s;
+  // background-color: red;
+  width: 100vw;
+  height: 100vh;
+  &__right {
+    @include col-s-s;
+    // background-color: blue;
+    width: 86.85%;
+    height: 100%;
+  }
+  &__bottom {
+    @include flex-s-s;
+    height: calc(100% - 100px);
+    width: 100%;
+    position: relative;
+  }
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 85%;
+  &.noti {
+    width: 100%;
+  }
+  transition: width 0.5s ease-in-out;
+  height: 100%;
+  background: var(--col--white);
+  padding: 30px 40px 0 40px;
+  @include col-s-s;
+  gap: 1em;
+  &__header {
+    width: 100%;
+    height: 60px;
+    @include flex-c-sb;
+    > a {
+      width: fit-content;
+    }
+    &__title {
+      color: var(--col--second);
+      font-weight: 700;
+      width: fit-content;
+      position: relative;
+      z-index: 1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        background: var(--col--main);
+        right: 0;
+        bottom: 0;
+        height: 50%;
+        width: 65%;
+        z-index: -1;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover {
+        &::after {
+          content: "";
+          position: absolute;
+          background: var(--col--main);
+          right: 0;
+          bottom: 0;
+          height: 50%;
+          width: 100%;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  &__main {
+    overflow-y: scroll;
+    height: calc(100% - 60px);
+    background: var(--col--white);
+    filter: var(--shadow-1);
+    width: 100%;
+    flex: 1;
+    padding: 40px;
+  }
+}
+
+.title {
+  font-weight: 700;
+  &.main {
+    color: var(--col--main);
+  }
+  &.second {
+    color: var(--col--second);
+  }
+  &.third {
+    color: var(--col--third);
+  }
+  &.grey {
+    color: var(--col--grey);
+  }
+}
+.title-2 {
+  font-weight: 600;
+  &.main {
+    color: var(--col--main);
+  }
+  &.second {
+    color: var(--col--second);
+  }
+  &.third {
+    color: var(--col--third);
+  }
+  &.grey {
+    color: var(--col--grey);
+  }
+}
+.title-3 {
+  font-weight: 500;
+  &.main {
+    color: var(--col--main);
+  }
+  &.second {
+    color: var(--col--second);
+  }
+  &.third {
+    color: var(--col--third);
+  }
+  &.grey {
+    color: var(--col--grey);
+  }
+}
+.title-4 {
+  font-weight: 400;
+  &.main {
+    color: var(--col--main);
+  }
+  &.second {
+    color: var(--col--second);
+  }
+  &.third {
+    color: var(--col--third);
+  }
+  &.grey {
+    color: var(--col--grey);
+  }
+}
+.title-5 {
+  font-weight: 300;
+  &.main {
+    color: var(--col--main);
+  }
+  &.second {
+    color: var(--col--second);
+  }
+  &.third {
+    color: var(--col--third);
+  }
+  &.grey {
+    color: var(--col--grey);
+  }
+}
+.start {
+  text-align: start;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.table {
+  @include col-s-s;
+  padding-left: 1.5em;
+  height: 100%;
+  &__header {
+    width: 100%;
+    @include flex-c-s;
+    > h4 {
+      &.offer {
+        width: 200%;
+      }
+      width: 100%;
+      @include flex-c-c;
+      padding-block: 0.5em;
+    }
+  }
+  &__item {
+    @include flex-c-c;
+    min-height: 121px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    &.accept {
+      @include flex-c-c;
+      flex-direction: row;
+      gap: 2em;
+    }
+    &.offer {
+      width: 200%;
+    }
+    &.col {
+      text-align: left;
+      column-span: 2;
+      @include col-s-s;
+      gap: 10px;
+      > p {
+        @include limited-lines(3, 1.2em);
+      }
+    }
+    &:nth-child(1) {
+      // background-color: blue;
+    }
+    &:nth-child(2) {
+      // background-color: red;
+    }
+    &:nth-child(3) {
+      // background-color: green;
+    }
+  }
+  &__row {
+    border-top: 2px solid var(--col--grey);
+    width: 100%;
+    @include flex-c-s;
+    padding-block: 20px;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      padding-block: 1.5em;
+      // background: darken(rgba(255, 250, 246), 1%);
+    }
+  }
+  &__toggle {
+    position: absolute;
+    right: 0;
+    top: 0.5em;
+    padding: 0;
+    > svg {
+      font-size: 1.5rem;
+      color: var(--col--second);
+    }
+  }
+}
+
+.image {
+  border-radius: 5px;
+  border: 2px solid var(--col--main);
+  object-fit: cover;
+  height: 116px;
+  width: 226.934px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    scale: 1.02;
+  }
+  &.full {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+.errorText {
+  color: var(--col--deadline);
+  font-size: 1.1rem;
+}
+.text_center {
+  text-align: center;
+}
+
+.form {
+  @include col-s-s;
+  width: 100%;
+  gap: 1em;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  &__top {
+    @include flex-s-s;
+    width: 100%;
+    gap: 2em;
+    transition: all 0.03s ease-in-out;
+  }
+  &__left {
+    width: 50%;
+    @include col-s-s;
+    gap: 1em;
+    > .input__group {
+      width: 100%;
+    }
+  }
+  &__right {
+    width: 50%;
+    @include col-s-s;
+    gap: 1em;
+    > .input__group {
+      width: 100%;
+    }
+  }
+  &__group {
+    width: 100%;
+    @include col-s-s;
+    gap: 1em;
+    &__container {
+      width: 100%;
+      @include flex-s-s;
+      gap: 1em;
+    }
+  }
+  &__bottom {
+    width: 100%;
+    @include flex-c-c;
+    gap: 1em;
+  }
+  &__col {
+    width: 32%;
+    @include col-s-s;
+    gap: 1em;
+    > .input__group {
+      width: 100%;
+    }
+  }
+  &__row {
+    @include col-s-s;
+    width: 100%;
+    gap: 2em;
+  }
+  &__btn {
+    height: 44px;
+    width: 150px;
+    position: relative;
+  }
+  &__all {
+    width: 100%;
+    > div {
+      width: 100%;
+    }
+  }
+}
+
+.single {
+  @include col-s-s;
+  gap: 1.5em;
+  padding-inline: 6em;
+  > button {
+    top: 3em;
+    right: 3em;
+  }
+  > .menu {
+    top: 4em;
+    right: 4em;
+  }
+  &__img {
+    border-radius: 5px;
+    border: 2px solid var(--col--main);
+    position: relative;
+    width: 100%;
+    height: 350px;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      scale: 1.005;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(211, 211, 211, 0.2) 0px -110.374px / 100% 224.785% no-repeat;
+    }
+  }
+}
+
+.claim {
+  padding: 2em;
+  @include col-s-s;
+  gap: 1.2em;
+  text-align: start;
+  > .input__group {
+    width: 100%;
+  }
+  > .radio__container {
+    width: 100%;
+    @include flex-c-sb;
+    gap: 1em;
+    input {
+      display: none;
+    }
+    label {
+      // background-color: red;
+      width: 200px;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  &__desc {
+    width: 100%;
+    padding: 1em;
+    border-radius: 5px;
+    border: 2px solid var(--col--main);
+    height: 300px;
+    overflow-y: scroll;
+  }
+  // background-color: red;
+}
+
+.Success {
+  @include col-c-s;
+  padding: 1em;
+  padding-bottom: 3em;
+  padding-top: 3em;
+  gap: 1.2em;
+  &.small {
+    padding-bottom: 1em;
+    padding-top: 1em;
+  }
+  > button {
+    margin-top: 50px;
+  }
+}
+
+.line {
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid var(--col--main);
+  background: var(--col--white);
+  height: 480px;
+  width: 100%;
+  /* Drop Shadow */
+  box-shadow: 0px 4px 45px 0px rgba(0, 0, 0, 0.2);
+  @include flex-c-c;
+  padding: 2em 0;
+}
+
+.home {
+  padding-inline: 1em;
+  @include col-s-s;
+  gap: 2em;
+  &__main {
+    width: 100%;
+    @include flex-s-s;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
+}
+
+.graph {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@keyframes bounce_btn {
+  50% {
+    padding-block: 1em;
+  }
+  30% {
+    padding-block: 0.8em;
+  }
+  50% {
+    padding-block: 1em;
+  }
+  70% {
+    padding-block: 0.8em;
+  }
+  90% {
+    padding-block: 1em;
+  }
+  100% {
+    padding-block: 0.8em;
+  }
+}
+
+@keyframes add-in-next {
+  0% {
+    transform: translateX(300%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes add-in-prev {
+  0% {
+    transform: translateX(-300%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes add-out-prev {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  10% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    transform: translateX(300%);
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+@keyframes add-out-next {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  10% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    transform: translateX(-300%);
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+
+.splide__arrows {
+  display: none;
+}
+
+.splide__pagination {
+  display: none;
+}
+
+.addStat {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  z-index: 2;
+  bottom: 30px;
+  right: 30px;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: var(--col--main);
+  /* plus sign */
+
+  /* hover effect on button width */
+  &:hover {
+    width: 155px;
+    border-radius: 10px;
+    transition-duration: 0.3s;
+  }
+  &:hover .sign {
+    width: 30%;
+    transition-duration: 0.3s;
+    padding-left: 20px;
+  }
+  /* hover effect button's text */
+  &:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: 0.3s;
+    padding-right: 20px;
+  }
+  /* button click effect*/
+  &:active {
+    transform: translate(2px, 2px);
+  }
+}
+
+.sign {
+  width: 100%;
+  font-size: 2em;
+  color: var(--col--white);
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: var(--col--white);
+  font-size: 1.2em;
+  font-weight: 500;
+  transition-duration: 0.3s;
+}
+
+.statistics {
+  position: relative;
+}
+
+.pie {
+  width: calc(50% - 1em);
+  h3 {
+    padding-bottom: 1em;
+  }
+  &__main {
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      transform: scale(1.01);
+      .pie__header {
+        visibility: visible;
+      }
+    }
+    height: 300px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid var(--col--main);
+    background: var(--col--white);
+    /* Drop Shadow */
+    box-shadow: 0px 4px 45px 0px rgba(0, 0, 0, 0.08);
+    @include flex-c-s;
+    position: relative;
+  }
+  &__header {
+    visibility: hidden;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    // background-color: red;
+    @include flex-c-c;
+    gap: 0.8em;
+    > button {
+      padding: 0;
+      svg {
+        color: var(--col--second);
+        font-size: 1.2rem;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          color: var(--col--main);
+        }
+      }
+    }
+  }
+  &__info {
+    height: 100%;
+    width: 60%;
+    padding-left: 0.5em;
+    @include col-s-c;
+    gap: 1.5em;
+    sub {
+      color: var(--col--grey);
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-right: 20px;
+    }
+    h3 {
+      padding-left: 0.9em;
+      position: relative;
+      height: fit-content;
+      &:first-child {
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 30%;
+          transform: translateY(-50%);
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: var(--col--main);
+        }
+      }
+      &:nth-child(2) {
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 30%;
+          transform: translateY(-50%);
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: var(--col--second);
+        }
+      }
+    }
+  }
+  &__container {
+    position: relative;
+    width: 40%;
+    height: 80%;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.demo-table {
+  width: 80vw;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+.example-form {
+  @include center;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 50%;
+}

@@ -1,0 +1,56 @@
+//NOTE: theme colors
+$main: #0c2162 !default;
+$second: #1437a2 !default;
+$third: #3ee5ee !default;
+$fourth: #e722c9 !default;
+$fifth: #fbb027 !default;
+$error: #d32752 !default;
+$info: #f6c31c !default;
+$blue: #1919e6 !default;
+$red: #e61919 !default;
+$yellow: #e6e619 !default;
+$green: #29ce66 !default;
+$orange: #ffa600 !default;
+$purple: #9900ff !default;
+$grey: #808080 !default;
+$black: black !default;
+$white: white !default;
+//NOTE:  color palette
+$colors: (
+  "main": $main,
+  "second": $second,
+  "third": $third,
+  "fourth": $fourth,
+  "fifth": $fifth,
+  "error": $error,
+  "info": $info,
+  "blue": $blue,
+  "red": $red,
+  "yellow": $yellow,
+  "green": $green,
+  "orange": $orange,
+  "purple": $purple,
+  "grey": $grey,
+  "black": $black,
+  "white": $white,
+) !default;
+// NOTE: box shodow
+$shadow-1: 0px 4px 25px 0px rgba(#3a53c2, 0.15);
+$shadow-2: 0px 4px 25px 0px rgba(#f6f6f6, 0.15);
+// NOTE: spacing
+$base-padding: 0.75rem !default;
+$base-margin: 0.75rem !default;
+
+// NOTE: borders
+$base-border-thickness: 1px !default;
+$base-border-radius: 10px !default;
+
+// NOTE: box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1) !default;
+
+// NOTE: font sizes
+$base-font-size: 1rem !default;
+$font-size-sm: $base-font-size * 0.75 !default;
+$font-size-lg: $base-font-size * 1.5 !default;
+$font-size-xl: $base-font-size * 2 !default;
+$font-size-xxl: $base-font-size * 3 !default;

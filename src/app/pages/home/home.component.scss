@@ -1,0 +1,14 @@
+@import "../../../mixins.scss";
+
+.example-container {
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  @include col-c-c;
+}
+
+.home {
+  &__outlet {
+    @include center;
+  }
+}

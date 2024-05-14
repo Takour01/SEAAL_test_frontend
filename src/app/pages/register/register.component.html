@@ -1,0 +1,43 @@
+<section class="login">
+  <div class="ball"></div>
+  <form
+    class="login__form"
+    [formGroup]="registerForm"
+    (submit)="$event.preventDefault(); submitHandler()"
+  >
+    <h1 class="login__title">Register</h1>
+    <div class="input__group">
+      <label htmlFor="" class="input__label"> Username </label>
+      <input
+        type="text"
+        name="username"
+        class="input"
+        formControlName="username"
+      />
+    </div>
+    <div class="input__group">
+      <label htmlFor="" class="input__label"> password </label>
+      <input
+        type="password"
+        name="password"
+        class="input"
+        formControlName="password"
+      />
+      <div
+        class="flex justify-center gap-1 underline uppercase text-blue-dark-4"
+      >
+        <a href="/login/Manager">do you have an account</a>
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="btn main form__btn">
+        {{ loading ? "loading ..." : "Login" }}
+      </button>
+      <div class="flex gap-1 underline uppercase text-blue-dark-4">
+        <a href="/register/Administrator">or you are an Administrator</a>
+      </div>
+    </div>
+  </form>
+</section>
+
+<!-- [disabled]="loginForm.invalid" -->

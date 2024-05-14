@@ -1,0 +1,23 @@
+<mat-toolbar class="navbar">
+  <div class="flex items-center">
+    <!-- <img src="../../../assets/systemXLogo.png" alt="logo" /> -->
+    <span (click)="backHome()" class="cursor-pointer">SystemX</span>
+    <span class=""></span>
+  </div>
+
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon>person_outline</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <span>logout</span>
+
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-menu>
+</mat-toolbar>

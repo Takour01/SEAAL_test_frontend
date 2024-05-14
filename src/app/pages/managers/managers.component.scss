@@ -1,0 +1,22 @@
+@import "../../../mixins.scss";
+
+.demo-table {
+  width: 80vw;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+.example-form {
+  @include center;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 50%;
+}
